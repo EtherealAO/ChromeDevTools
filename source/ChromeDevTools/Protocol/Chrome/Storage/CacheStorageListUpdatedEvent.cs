@@ -15,5 +15,9 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Storage
 		/// Gets or sets Origin to update.
 		/// </summary>
 		public string Origin { get; set; }
+		/// <summary>
+		/// Gets or sets Storage key to update.
+		/// </summary>
+		public string StorageKey { get; set; }
 	}
 }

@@ -27,7 +27,8 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Network
 		/// </summary>
 		public string LogId { get; set; }
 		/// <summary>
-		/// Gets or sets Issuance date.
+		/// Gets or sets Issuance date. Unlike TimeSinceEpoch, this contains the number of
+		/// milliseconds since January 1, 1970, UTC, not the number of seconds.
 		/// </summary>
 		public double Timestamp { get; set; }
 		/// <summary>

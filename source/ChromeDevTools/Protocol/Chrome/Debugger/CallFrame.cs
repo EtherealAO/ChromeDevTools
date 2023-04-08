@@ -28,11 +28,17 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Debugger
 		/// </summary>
 		public Location Location { get; set; }
 		/// <summary>
+		/// Gets or sets JavaScript script name or url.
+		/// Deprecated in favor of using the `location.scriptId` to resolve the URL via a previously
+		/// sent `Debugger.scriptParsed` event.
+		/// </summary>
+		public string Url { get; set; }
+		/// <summary>
 		/// Gets or sets Scope chain for this call frame.
 		/// </summary>
 		public Scope[] ScopeChain { get; set; }
 		/// <summary>
-		/// Gets or sets <code>this</code> object for this call frame.
+		/// Gets or sets `this` object for this call frame.
 		/// </summary>
 		public Runtime.RemoteObject This { get; set; }
 		/// <summary>
@@ -40,5 +46,13 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Debugger
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public Runtime.RemoteObject ReturnValue { get; set; }
+		/// <summary>
+		/// Gets or sets Valid only while the VM is paused and indicates whether this frame
+		/// can be restarted or not. Note that a `true` value here does not
+		/// guarantee that Debugger#restartFrame with this CallFrameId will be
+		/// successful, but it is very likely.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public bool? CanBeRestarted { get; set; }
 	}
 }

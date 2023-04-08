@@ -5,7 +5,8 @@ using System.Collections.Generic;
 namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Runtime
 {
 	/// <summary>
-	/// Issued when object should be inspected (for example, as a result of inspect() command line API call).
+	/// Issued when object should be inspected (for example, as a result of inspect() command line API
+	/// call).
 	/// </summary>
 	[Event(ProtocolName.Runtime.InspectRequested)]
 	[SupportedBy("Chrome")]
@@ -19,5 +20,10 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Runtime
 		/// Gets or sets Hints
 		/// </summary>
 		public object Hints { get; set; }
+		/// <summary>
+		/// Gets or sets Identifier of the context where the call was made.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public long? ExecutionContextId { get; set; }
 	}
 }

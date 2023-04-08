@@ -7,6 +7,12 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Debugger
 {
 	/// <summary>
 	/// Edits JavaScript source live.
+	/// 
+	/// In general, functions that are currently on the stack can not be edited with
+	/// a single exception: If the edited function is the top-most stack frame and
+	/// that is the only activation of that function on the stack. In this case
+	/// the live edit will be successful and a `Debugger.restartFrame` for the
+	/// top-most function is automatically triggered.
 	/// </summary>
 	[CommandResponse(ProtocolName.Debugger.SetScriptSource)]
 	[SupportedBy("Chrome")]
@@ -28,7 +34,18 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Debugger
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public Runtime.StackTrace AsyncStackTrace { get; set; }
 		/// <summary>
-		/// Gets or sets Exception details if any.
+		/// Gets or sets Async stack trace, if any.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public Runtime.StackTraceId AsyncStackTraceId { get; set; }
+		/// <summary>
+		/// Gets or sets Whether the operation was successful or not. Only `Ok` denotes a
+		/// successful live edit while the other enum variants denote why
+		/// the live edit failed.
+		/// </summary>
+		public string Status { get; set; }
+		/// <summary>
+		/// Gets or sets Exception details if any. Only present when `status` is `CompileError`.
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public Runtime.ExceptionDetails ExceptionDetails { get; set; }

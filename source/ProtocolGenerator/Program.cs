@@ -29,7 +29,7 @@ namespace MasterDevs.ChromeDevTools.ProtocolGenerator
             Dictionary<string, string[]> protocolFiles = new Dictionary<string, string[]>
             {
                 {"Chrome", new [] { "js_protocol.json", "browser_protocol.json" } },
-                {"iOS", new [] { "Inspector-iOS-9.3.json" } }
+                //{"iOS", new [] { "Inspector-iOS-9.3.json" } }
             };
 
 
@@ -322,7 +322,7 @@ namespace MasterDevs.ChromeDevTools.ProtocolGenerator
             if (!String.IsNullOrEmpty(description))
             {
                 sb.AppendLine("\t/// <summary>");
-                sb.AppendFormat("\t/// {0}", description);
+                sb.AppendFormat("\t/// {0}", description.Replace("\n",$"{Environment.NewLine}\t/// "));
                 sb.AppendLine();
                 sb.AppendLine("\t/// </summary>");
             }
@@ -433,7 +433,7 @@ namespace MasterDevs.ChromeDevTools.ProtocolGenerator
             }
 
             sb.AppendLine("\t\t/// <summary>");
-            sb.AppendFormat("\t\t/// Gets or sets {0}", property.Description ?? propertyName);
+            sb.AppendFormat("\t\t/// Gets or sets {0}", (property.Description ?? propertyName).Replace("\n", $"{Environment.NewLine}\t\t/// "));
             sb.AppendLine();
             sb.AppendLine("\t\t/// </summary>");
             if (className == propertyName)
@@ -526,7 +526,7 @@ namespace MasterDevs.ChromeDevTools.ProtocolGenerator
             sb.AppendFormat("namespace {0}.{1}.{2}", RootNamespace, ns, domainDirectoryInfo.Name);
             sb.AppendLine("{");
             sb.AppendLine("\t/// <summary>");
-            sb.AppendFormat("\t/// {0}", type.Description);
+            sb.AppendFormat("\t/// {0}", type.Description?.Replace("\n", $"{Environment.NewLine}\t/// "));
             sb.AppendLine();
             sb.AppendLine("\t/// </summary>");
             sb.AppendLine("\t[JsonConverter(typeof(StringEnumConverter))]");

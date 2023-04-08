@@ -19,12 +19,12 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.CSS
 		/// </summary>
 		public string Value { get; set; }
 		/// <summary>
-		/// Gets or sets Whether the property has "!important" annotation (implies <code>false</code> if absent).
+		/// Gets or sets Whether the property has "!important" annotation (implies `false` if absent).
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public bool? Important { get; set; }
 		/// <summary>
-		/// Gets or sets Whether the property is implicit (implies <code>false</code> if absent).
+		/// Gets or sets Whether the property is implicit (implies `false` if absent).
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public bool? Implicit { get; set; }
@@ -34,7 +34,7 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.CSS
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public string Text { get; set; }
 		/// <summary>
-		/// Gets or sets Whether the property is understood by the browser (implies <code>true</code> if absent).
+		/// Gets or sets Whether the property is understood by the browser (implies `true` if absent).
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public bool? ParsedOk { get; set; }
@@ -48,5 +48,11 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.CSS
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public SourceRange Range { get; set; }
+		/// <summary>
+		/// Gets or sets Parsed longhand components of this property if it is a shorthand.
+		/// This field will be empty if the given property is not a shorthand.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public CSSProperty[] LonghandProperties { get; set; }
 	}
 }

@@ -16,7 +16,7 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Network
 		/// </summary>
 		public string RequestId { get; set; }
 		/// <summary>
-		/// Gets or sets Loader identifier. Empty string if the request is fetched form worker.
+		/// Gets or sets Loader identifier. Empty string if the request is fetched from worker.
 		/// </summary>
 		public string LoaderId { get; set; }
 		/// <summary>
@@ -26,11 +26,16 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Network
 		/// <summary>
 		/// Gets or sets Resource type.
 		/// </summary>
-		public Page.ResourceType Type { get; set; }
+		public ResourceType Type { get; set; }
 		/// <summary>
 		/// Gets or sets Response data.
 		/// </summary>
 		public Response Response { get; set; }
+		/// <summary>
+		/// Gets or sets Indicates whether requestWillBeSentExtraInfo and responseReceivedExtraInfo events will be
+		/// or were emitted for this request.
+		/// </summary>
+		public bool HasExtraInfo { get; set; }
 		/// <summary>
 		/// Gets or sets Frame identifier.
 		/// </summary>

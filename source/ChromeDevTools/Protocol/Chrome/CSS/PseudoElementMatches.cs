@@ -15,6 +15,11 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.CSS
 		/// </summary>
 		public DOM.PseudoType PseudoType { get; set; }
 		/// <summary>
+		/// Gets or sets Pseudo element custom ident.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public string PseudoIdentifier { get; set; }
+		/// <summary>
 		/// Gets or sets Matches of CSS rules applicable to the pseudo style.
 		/// </summary>
 		public RuleMatch[] Matches { get; set; }

@@ -15,5 +15,9 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Runtime
 		/// Gets or sets Id of the destroyed context
 		/// </summary>
 		public long ExecutionContextId { get; set; }
+		/// <summary>
+		/// Gets or sets Unique Id of the destroyed context
+		/// </summary>
+		public string ExecutionContextUniqueId { get; set; }
 	}
 }

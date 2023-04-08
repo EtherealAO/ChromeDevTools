@@ -20,6 +20,9 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Storage{
 			Websql,
 			Service_workers,
 			Cache_storage,
+			Interest_groups,
+			Shared_storage,
+			Storage_buckets,
 			All,
 			Other,
 	}

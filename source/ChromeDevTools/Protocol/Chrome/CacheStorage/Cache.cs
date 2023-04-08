@@ -19,6 +19,10 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.CacheStorage
 		/// </summary>
 		public string SecurityOrigin { get; set; }
 		/// <summary>
+		/// Gets or sets Storage key of the cache.
+		/// </summary>
+		public string StorageKey { get; set; }
+		/// <summary>
 		/// Gets or sets The name of the cache.
 		/// </summary>
 		public string CacheName { get; set; }

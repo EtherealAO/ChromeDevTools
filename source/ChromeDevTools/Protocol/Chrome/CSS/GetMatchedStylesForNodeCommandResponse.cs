@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace MasterDevs.ChromeDevTools.Protocol.Chrome.CSS
 {
 	/// <summary>
-	/// Returns requested styles for a DOM node identified by <code>nodeId</code>.
+	/// Returns requested styles for a DOM node identified by `nodeId`.
 	/// </summary>
 	[CommandResponse(ProtocolName.CSS.GetMatchedStylesForNode)]
 	[SupportedBy("Chrome")]
@@ -38,9 +38,24 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.CSS
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public InheritedStyleEntry[] Inherited { get; set; }
 		/// <summary>
+		/// Gets or sets A chain of inherited pseudo element styles (from the immediate node parent up to the DOM tree root).
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public InheritedPseudoElementMatches[] InheritedPseudoElements { get; set; }
+		/// <summary>
 		/// Gets or sets A list of CSS keyframed animations matching this node.
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public CSSKeyframesRule[] CssKeyframesRules { get; set; }
+		/// <summary>
+		/// Gets or sets A list of CSS position fallbacks matching this node.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public CSSPositionFallbackRule[] CssPositionFallbackRules { get; set; }
+		/// <summary>
+		/// Gets or sets Id of the first parent element that does not have display: contents.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public long? ParentLayoutNodeId { get; set; }
 	}
 }

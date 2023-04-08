@@ -88,11 +88,16 @@ namespace MasterDevs.ChromeDevTools
             return CastTaskResult<ICommandResponse, CommandResponse<T>>(task);
         }
 
-        private Task<TDerived> CastTaskResult<TBase, TDerived>(Task<TBase> task) where TDerived: TBase
+        private Task<TDerived> CastTaskResult<TBase, TDerived>(Task<TBase> task) where TDerived : TBase
         {
             var tcs = new TaskCompletionSource<TDerived>();
-            task.ContinueWith(t => tcs.SetResult((TDerived)t.Result),
-                TaskContinuationOptions.OnlyOnRanToCompletion);
+            task.ContinueWith(t =>
+            {
+                if (t.Result is ErrorResponse err)
+                    throw new Exception(err.Error.Message);
+                else
+                    tcs.SetResult((TDerived)t.Result);
+            }, TaskContinuationOptions.OnlyOnRanToCompletion);
             task.ContinueWith(t => tcs.SetException(t.Exception.InnerExceptions),
                 TaskContinuationOptions.OnlyOnFaulted);
             task.ContinueWith(t => tcs.SetCanceled(),
@@ -105,7 +110,7 @@ namespace MasterDevs.ChromeDevTools
             var handlerType = typeof(T);
             var handlerForBag = new Action<object>(obj => handler((T)obj));
             _handlers.AddOrUpdate(handlerType.FullName,
-                (m) => new ConcurrentBag<Action<object>>(new [] { handlerForBag }),
+                (m) => new ConcurrentBag<Action<object>>(new[] { handlerForBag }),
                 (m, currentBag) =>
                 {
                     currentBag.Add(handlerForBag);
@@ -142,7 +147,8 @@ namespace MasterDevs.ChromeDevTools
             if (evnt.GetType().GetGenericTypeDefinition() == typeof(Event<>))
             {
                 handler(evnt.Params);
-            } else
+            }
+            else
             {
                 handler(evnt);
             }

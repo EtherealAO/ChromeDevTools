@@ -11,11 +11,13 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Accessibility{
 	[JsonConverter(typeof(StringEnumConverter))]
 	public enum AXValueNativeSourceType
 	{
+			Description,
 			Figcaption,
 			Label,
 			Labelfor,
 			Labelwrapped,
 			Legend,
+			Rubyannotation,
 			Tablecaption,
 			Title,
 			Other,

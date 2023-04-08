@@ -24,22 +24,27 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Accessibility
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public AXProperty[] IgnoredReasons { get; set; }
 		/// <summary>
-		/// Gets or sets This <code>Node</code>'s role, whether explicit or implicit.
+		/// Gets or sets This `Node`'s role, whether explicit or implicit.
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public AXValue Role { get; set; }
 		/// <summary>
-		/// Gets or sets The accessible name for this <code>Node</code>.
+		/// Gets or sets This `Node`'s Chrome raw role.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public AXValue ChromeRole { get; set; }
+		/// <summary>
+		/// Gets or sets The accessible name for this `Node`.
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public AXValue Name { get; set; }
 		/// <summary>
-		/// Gets or sets The accessible description for this <code>Node</code>.
+		/// Gets or sets The accessible description for this `Node`.
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public AXValue Description { get; set; }
 		/// <summary>
-		/// Gets or sets The value for this <code>Node</code>.
+		/// Gets or sets The value for this `Node`.
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public AXValue Value { get; set; }
@@ -48,6 +53,11 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Accessibility
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public AXProperty[] Properties { get; set; }
+		/// <summary>
+		/// Gets or sets ID for this node's parent.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public string ParentId { get; set; }
 		/// <summary>
 		/// Gets or sets IDs for each of this node's child nodes.
 		/// </summary>
@@ -58,5 +68,10 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Accessibility
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public long? BackendDOMNodeId { get; set; }
+		/// <summary>
+		/// Gets or sets The frame ID for the frame associated with this nodes document.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public string FrameId { get; set; }
 	}
 }

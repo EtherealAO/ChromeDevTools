@@ -13,9 +13,16 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.IndexedDB
 	public class RequestDatabaseCommand: ICommand<RequestDatabaseCommandResponse>
 	{
 		/// <summary>
-		/// Gets or sets Security origin.
+		/// Gets or sets At least and at most one of securityOrigin, storageKey must be specified.
+		/// Security origin.
 		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public string SecurityOrigin { get; set; }
+		/// <summary>
+		/// Gets or sets Storage key.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public string StorageKey { get; set; }
 		/// <summary>
 		/// Gets or sets Database name.
 		/// </summary>

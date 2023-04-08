@@ -6,5 +6,6 @@
     "win": {}
   },
   "dependencies": {
+    "WebSocket4Net": "0.15.2"
   }
 }

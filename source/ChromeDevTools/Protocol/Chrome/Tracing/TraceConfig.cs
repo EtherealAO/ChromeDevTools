@@ -13,6 +13,12 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Tracing
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public string RecordMode { get; set; }
 		/// <summary>
+		/// Gets or sets Size of the trace buffer in kilobytes. If not specified or zero is passed, a default value
+		/// of 200 MB would be used.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public double TraceBufferSizeInKb { get; set; }
+		/// <summary>
 		/// Gets or sets Turns on JavaScript stack sampling.
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace MasterDevs.ChromeDevTools.Protocol.Chrome.DOM
 {
 	/// <summary>
-	/// Mirrors <code>DOMNodeInserted</code> event.
+	/// Mirrors `DOMNodeInserted` event.
 	/// </summary>
 	[Event(ProtocolName.DOM.ChildNodeInserted)]
 	[SupportedBy("Chrome")]
@@ -16,7 +16,7 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.DOM
 		/// </summary>
 		public long ParentNodeId { get; set; }
 		/// <summary>
-		/// Gets or sets If of the previous siblint.
+		/// Gets or sets Id of the previous sibling.
 		/// </summary>
 		public long PreviousNodeId { get; set; }
 		/// <summary>

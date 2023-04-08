@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Security
 {
 	/// <summary>
-	/// The security state of the page changed.
+	/// The security state of the page changed. No longer being sent.
 	/// </summary>
 	[Event(ProtocolName.Security.SecurityStateChanged)]
 	[SupportedBy("Chrome")]
@@ -20,7 +20,8 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Security
 		/// </summary>
 		public bool SchemeIsCryptographic { get; set; }
 		/// <summary>
-		/// Gets or sets List of explanations for the security state. If the overall security state is `insecure` or `warning`, at least one corresponding explanation should be included.
+		/// Gets or sets Previously a list of explanations for the security state. Now always
+		/// empty.
 		/// </summary>
 		public SecurityStateExplanation[] Explanations { get; set; }
 		/// <summary>
@@ -28,7 +29,7 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Security
 		/// </summary>
 		public InsecureContentStatus InsecureContentStatus { get; set; }
 		/// <summary>
-		/// Gets or sets Overrides user-visible description of the state.
+		/// Gets or sets Overrides user-visible description of the state. Always omitted.
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public string Summary { get; set; }

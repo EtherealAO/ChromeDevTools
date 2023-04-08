@@ -5,7 +5,8 @@ using System.Collections.Generic;
 namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Runtime
 {
 	/// <summary>
-	/// Detailed information about exception (or error) that was thrown during script compilation or execution.
+	/// Detailed information about exception (or error) that was thrown during script compilation or
+	/// execution.
 	/// </summary>
 	[SupportedBy("Chrome")]
 	public class ExceptionDetails
@@ -51,5 +52,12 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Runtime
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public long? ExecutionContextId { get; set; }
+		/// <summary>
+		/// Gets or sets Dictionary with entries of meta data that the client associated
+		/// with this exception, such as information about associated network
+		/// requests, etc.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public object ExceptionMetaData { get; set; }
 	}
 }

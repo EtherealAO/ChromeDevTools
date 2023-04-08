@@ -14,5 +14,21 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.HeapProfiler
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public bool? ReportProgress { get; set; }
+		/// <summary>
+		/// Gets or sets If true, a raw snapshot without artificial roots will be generated.
+		/// Deprecated in favor of `exposeInternals`.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public bool? TreatGlobalObjectsAsRoots { get; set; }
+		/// <summary>
+		/// Gets or sets If true, numerical values are included in the snapshot
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public bool? CaptureNumericValue { get; set; }
+		/// <summary>
+		/// Gets or sets If true, exposes internals of the snapshot.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public bool? ExposeInternals { get; set; }
 	}
 }

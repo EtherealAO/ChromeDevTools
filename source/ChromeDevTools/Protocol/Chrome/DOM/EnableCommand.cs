@@ -12,5 +12,10 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.DOM
 	[SupportedBy("Chrome")]
 	public class EnableCommand: ICommand<EnableCommandResponse>
 	{
+		/// <summary>
+		/// Gets or sets Whether to include whitespaces in the children array of returned Nodes.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public string IncludeWhitespace { get; set; }
 	}
 }

@@ -60,5 +60,20 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Network
 		/// Gets or sets List of signed certificate timestamps (SCTs).
 		/// </summary>
 		public SignedCertificateTimestamp[] SignedCertificateTimestampList { get; set; }
+		/// <summary>
+		/// Gets or sets Whether the request complied with Certificate Transparency policy
+		/// </summary>
+		public CertificateTransparencyCompliance CertificateTransparencyCompliance { get; set; }
+		/// <summary>
+		/// Gets or sets The signature algorithm used by the server in the TLS server signature,
+		/// represented as a TLS SignatureScheme code point. Omitted if not
+		/// applicable or not known.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public long? ServerSignatureAlgorithm { get; set; }
+		/// <summary>
+		/// Gets or sets Whether the connection used Encrypted ClientHello
+		/// </summary>
+		public bool EncryptedClientHello { get; set; }
 	}
 }

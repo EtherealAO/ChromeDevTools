@@ -32,5 +32,15 @@ namespace MasterDevs.ChromeDevTools.Protocol.Chrome.Page
 		/// </summary>
 		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
 		public bool? FromSurface { get; set; }
+		/// <summary>
+		/// Gets or sets Capture the screenshot beyond the viewport. Defaults to false.
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public bool? CaptureBeyondViewport { get; set; }
+		/// <summary>
+		/// Gets or sets Optimize image encoding for speed, not for resulting size (defaults to false)
+		/// </summary>
+		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+		public bool? OptimizeForSpeed { get; set; }
 	}
 }
