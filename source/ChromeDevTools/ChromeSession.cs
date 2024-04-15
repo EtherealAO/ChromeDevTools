@@ -75,16 +75,16 @@ namespace MasterDevs.ChromeDevTools
             });
         }
 
-        public Task<ICommandResponse> SendAsync<T>(CancellationToken cancellationToken)
+        public Task<ICommandResponse> SendAsync<T>(CancellationToken? cancellationToken = null)
         {
             var command = _commandFactory.Create<T>();
-            return SendCommand(command, cancellationToken);
+            return SendCommand(command, cancellationToken ?? CancellationToken.None);
         }
 
-        public Task<CommandResponse<T>> SendAsync<T>(ICommand<T> parameter, CancellationToken cancellationToken)
+        public Task<CommandResponse<T>> SendAsync<T>(ICommand<T> parameter, CancellationToken? cancellationToken = null)
         {
             var command = _commandFactory.Create(parameter);
-            var task = SendCommand(command, cancellationToken);
+            var task = SendCommand(command, cancellationToken ?? CancellationToken.None);
             return CastTaskResult<ICommandResponse, CommandResponse<T>>(task);
         }
 
@@ -94,7 +94,7 @@ namespace MasterDevs.ChromeDevTools
             task.ContinueWith(t =>
             {
                 if (t.Result is ErrorResponse err)
-                    throw new Exception(err.Error.Message);
+                    tcs.SetException(new ErrorException(err));
                 else
                     tcs.SetResult((TDerived)t.Result);
             }, TaskContinuationOptions.OnlyOnRanToCompletion);

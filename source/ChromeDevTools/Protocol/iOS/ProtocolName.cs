@@ -1,5 +1,3 @@
-using MasterDevs.ChromeDevTools;
-
 namespace MasterDevs.ChromeDevTools.Protocol.iOS
 {
 	public static class ProtocolName

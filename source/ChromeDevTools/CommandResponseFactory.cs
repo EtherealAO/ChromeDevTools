@@ -1,7 +1,6 @@
 ﻿using MasterDevs.ChromeDevTools.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
 using System;
 
 namespace MasterDevs.ChromeDevTools

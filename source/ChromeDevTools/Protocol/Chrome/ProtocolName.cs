@@ -1,5 +1,3 @@
-using MasterDevs.ChromeDevTools;
-
 namespace MasterDevs.ChromeDevTools.Protocol.Chrome
 {
 	public static class ProtocolName

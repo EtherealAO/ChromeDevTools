@@ -1,12 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<OutputType>Exe</OutputType>
-		<RootNamespace>MasterDevs.ChromeDevTools.ProtocolGenerator</RootNamespace>
-		<AssemblyName>MasterDevs.ChromeDevTools.ProtocolGenerator</AssemblyName>
-		<TargetFramework>net6.0</TargetFramework>
-	</PropertyGroup>
-	<ItemGroup>
-	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-	</ItemGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MasterDevs.ChromeDevTools.ProtocolGenerator</RootNamespace>
+    <AssemblyName>MasterDevs.ChromeDevTools.ProtocolGenerator</AssemblyName>
+    <TargetFramework>net6.0</TargetFramework>
+    <BaseOutputPath>$(USERPROFILE)\source\builds\$(SolutionName)\Bin\$(AssemblyName)\</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(USERPROFILE)\source\builds\$(SolutionName)\Obj\$(AssemblyName)\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
 </Project>

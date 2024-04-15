@@ -18,7 +18,7 @@ namespace MasterDevs.ChromeDevTools
 
         public IChromeProcess Create(int port, bool headless)
         {
-            string path = Path.GetRandomFileName();
+            var path = Path.GetRandomFileName();
             var directoryInfo = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), path));
             var remoteDebuggingArg = $"--remote-debugging-port={port}";
             var userDirectoryArg = $"--user-data-dir=\"{directoryInfo.FullName}\"";
@@ -35,7 +35,7 @@ namespace MasterDevs.ChromeDevTools
             var processStartInfo = new ProcessStartInfo(ChromePath, string.Join(" ", chromeProcessArgs));
             var chromeProcess = Process.Start(processStartInfo);
 
-            string remoteDebuggingUrl = "http://localhost:" + port;
+            var remoteDebuggingUrl = "http://localhost:" + port;
             return new LocalChromeProcess(new Uri(remoteDebuggingUrl), () => DirectoryCleaner.Delete(directoryInfo), chromeProcess);
         }
     }
